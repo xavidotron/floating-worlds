@@ -19,6 +19,8 @@ def get_game(yamlf, include_locals):
             str(yamlf), k)
     d['name'] = get_name(yamlf)
     d['title'] = d['name']
+    if 'blurb' not in d:
+        d['blurb'] = d['desc']
     if include_locals:
         static = 'Games/%s/static' % d['name']
         d['static'] = [f for f in os.listdir(static) if not f.startswith('.')]
@@ -85,8 +87,14 @@ def make_index(title, prefix, gamefs=None, recommendedfs=None):
         if gamefs:
             d['games'] = [get_game(yamlf, False) for yamlf in gamefs]
         if recommendedfs:
-            d['recommended'] = [
-                get_game(yamlf, False) for yamlf in recommendedfs]
+            recgames = {}
+            for yamlf in recommendedfs:
+                g = get_game(yamlf, False)
+                if g['type'] not in recgames:
+                    recgames[g['type']] = []
+                recgames[g['type']].append(g)
+            d['recommended'] = recgames
+                
         rendered = tmpl.render(**d)
         with open(str(target[0]), 'w') as ofil:
             ofil.write(rendered.encode('utf-8'))

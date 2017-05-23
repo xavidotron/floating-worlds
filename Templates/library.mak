@@ -31,14 +31,20 @@ Ink</a>
 
 <h2>Other Recommended Games</h2>
 
+%for sub in recommended:
+
+<h3>${sub}</h3>
+
 <table border="1">
 <tr><th>Name</th><th>Premise</th><th>By</th><th>Size</th><th>Length</th></tr>
 
-%for g in recommended:
+%for g in recommended[sub]:
 <tr><td><a href="../game/${g['name']}/">${g['name']}</a></td><td>${g['desc']}</td><td>${g['by']}</td><td>${g.get('size', '')}</td><td>${g.get('length', '')}</td></tr>
 %endfor
 
 </table>
+
+%endfor
 
 <p><small>If you have feedback, questions, or suggestions, or want to
     submit a game, email library@floating-worlds.org.</small></p>
