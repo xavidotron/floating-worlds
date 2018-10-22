@@ -1,0 +1,11 @@
+\documentclass{gameki}
+
+% Use single-siding to avoid a blank page at the end of sheets.
+\SingleSiding
+\csname SingleCards\endcsname
+
+\begin{document}
+
+\parsedmacros
+
+\end{document}

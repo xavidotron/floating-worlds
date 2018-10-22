@@ -1,0 +1,64 @@
+\documentclass[char]{iron}
+\begin{document}
+
+\name{\cGuildmaster{}}
+
+%% quote examples
+%\bigquote{``Use this macro for large quotes of prose and such.  It justifies everything like a paragraph, except with no indentation.''}{-- The Author}
+
+%\cenquote{``This macro is good\\ For shorter quotes\\ Or things like song lyrics:\\ It centers.''}{-- The Author}
+
+Oh, to be a star-crossed lover is a terrible fate! You're a young
+Water merchant named \cGuildmaster{\real{\full}}, and you have fallen
+madly in love with a young Air noble named \cServant{\real{\intro}},
+who you first met when you began delivering shipments of elemental
+gems to their family's estate. Your courtship has been a thing of sly
+glances and whispered conversations---and the occasional stolen
+kiss---for of course their parents would never approve. And not just
+their parents, but the law itself! For, alas, the Air and Water castes
+are separated by so wide a gulf that to marry \cServant{\real{\first}}
+would be categorically illegal!
+
+But hope springs eternal, for you and your love are fortunate enough to be alive during the time of the Convergence, when the laws of nature and society may rewrite themselves anew! If Water were to change places with Fire in the great cosmic order, then you and \cServant{\real{\first}} could be together at last! Their parents would still disapprove, of course, but that is a trouble for another time.
+
+And so you and \cServant{\real{\first}} made a pact, that you would somehow find a way to attend the Convergence, and thus reshape the very fabric of society to allow your union. You have succeeded, for your part. Last night, you found yourself drinking at the same tavern as the Guildmaster of the Water caste, \cGuildmaster{\intro}. \cGuildmaster{} is a vile and selfish individual, but you knew that as Guildmaster they would be attending the Convergence. And so you paid the tavernkeep a considerable sum to spend the entire night serving \cGuildmaster{} the tavern's strongest ales, such that they would be indisposed for days. And then you endeavored to create a cunning disguise that would allow you pose as \cGuildmaster{} and thereby gain admittance to the Convergence---and you were quite cunning indeed, it seems! So far, neither of the other Water delegates in attendance has seen through your ruse. You only recognize one of them, actually: \cTrickster{\intro}, a fairly successful trader you have met on a handful of occasions. They seem to be behaving a bit\ldots{} erratically today, for some reason. But you suppose that anything that might distract them from seeing through your disguise is a blessing.
+
+There is no sign of \cServant{\real{\first}}, unfortunately. It seems they did not share in your good fortune. Still, you must not lose heart! You, at least, are here to cast your vote, and that is better than nothing!
+
+And while you're here, it seems that you have a chance to help your own
+financial prospects. The delegates to the Convergence will be voting on
+whether to end the traditional ban on exporting elemental gems out of
+\sHomeCountry{}---and as you well know, those Water merchants who engage in
+international trade are afforded the most prestige. Given that you yourself
+are involved in the gem trade, allowing their export would open up many
+opportunities for you. (Of course, the \emph{real} \cGuildmaster{\intro} is not
+involved in the gem trade, so their sudden support for such a measure might
+come as a surprise to the other delegates.) Forming an alliance with
+\sTreatyCountry{}, too, would also open up new trade opportunities, though
+that'd only help you directly if exporting gems is also allowed.
+
+But you must take care not to lose sight of your first and most important motive---true love!
+
+\begin{itemz}[Goals]
+  \item Realign the very essence of the cosmos itself so that you can be united with your true love!
+  \item Ensure your financial prosperity by legalizing the export of elemental gems.
+  \item If the export of elemental gems seems like it'll be approved,
+    also try to make the alliance with \sTreatyCountry{} go through 
+    so you have expanded trading opportunities.
+\end{itemz}
+
+%\begin{itemz}[Notes]
+%  \item 
+%\end{itemz}
+
+%%%%%
+%% List contacts, using \contact{<char macro>}
+\begin{contacts}
+  \contact{\cServant{\real[\rs\MYplayer{}]{\bf{\intro}}}} The love of your life! It doesn't look like they managed to sneak into the Convergence, though. Alas!
+  \contact{\cTrickster{}} A Water merchant you know, albeit not well. They appear to be acting a bit strangely.
+  \contact{\cFakePriest{}} The other member of the Water delegation. One of the relatively rare members of the Water caste who is a priest rather than a merchant. (If only \cServant{\real{\first}} were here, \cFakePriest{} could marry the two of you tonight!)
+  \contact{\cHotPerson{}} An absurdly attractive Air noble. If you weren't so devoted to \cServant{\real{\first}}, you might be tempted\ldots{} but there's only one person you'd rearrange the very fabric of reality for.
+\end{contacts}
+
+
+\end{document}

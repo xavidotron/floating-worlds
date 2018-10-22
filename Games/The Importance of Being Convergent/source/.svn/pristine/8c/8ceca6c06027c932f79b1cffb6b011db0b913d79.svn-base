@@ -1,0 +1,606 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os, sys, string
+import collections, re
+import csv, cgi
+
+supheadings = []
+headings = []
+coltypes = []
+#d = collections.OrderedDict()
+apps = []
+times = []
+special_col_index_map = {}
+ambig_indexes = set()
+
+# Magic
+SPECIAL_NAMES = ('Name', 'Email')
+TIME_HEADING_RE = re.compile(r'When|Time\b')
+CHARS = []
+
+COMMENT_RE = re.compile(r'^\s*%')
+PC_RE = re.compile(r'\\NEW\{[a-zA-Z]+\}\{(\\[a-zA-Z]+)\}')
+NAME_RE = re.compile(r'\\s\\MYname\s*\{(.+)\}')
+DESC_RE = re.compile(r'\\s\\MYdesc\s*\{(.+)\}')
+SEX_RE = re.compile(r'\\s\\MYsex\s*\{(.+)\}')
+FILE_RE = re.compile(r'\\s\\MYfile\s*\{(.+)\}')
+CHAR_RATING_RE = re.compile(r'% ([a-z ]+): ([1-5])')
+
+if len(sys.argv) <= 1:
+    sys.stderr.write("Usage: %s responses.csv > interface.html\n" % __file__)
+    sys.exit(1)
+
+GAMETEX_DIR = os.path.relpath(os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))))
+
+
+RATINGS_RE = re.compile(r'^(.*) \[(.*)\]$')
+TIME_SPLIT_RE = re.compile(r'[,;] ?(?=\d)')
+TIME_SUB_RE = re.compile(r'(?:ur)?day, \w+ \d+th$')
+
+time_index = None
+
+if len(sys.argv) < 2:
+    print >>sys.stderr, 'Usage: Gameki/bin/casting responses.csv > out.html'
+    sys.exit(1)
+
+ratings_keys = set()
+for l in csv.reader(file(sys.argv[1])):
+    if not headings:
+        for index in xrange(len(l)):
+            item = l[index]
+            m = RATINGS_RE.match(item)
+            if m:
+                headings.append(m.group(2))
+                supheadings.append(m.group(1))
+                ratings_keys.add(m.group(2))
+                coltypes.append('n')
+            else:
+                headings.append(item)
+                supheadings.append('')
+                if TIME_HEADING_RE.search(item):
+                    print >>sys.stderr, (
+                        "Interpreting '%s' as availability." % item)
+                    coltypes.append('t')
+                    time_index = index
+                elif item in SPECIAL_NAMES:
+                    coltypes.append('s')
+                    special_col_index_map[item] = index
+                else:
+                    ambig_indexes.add(index)
+                    coltypes.append('n')
+    else:
+        apps.append(l)
+        
+        if time_index is not None and l[time_index]:
+            tbits = TIME_SPLIT_RE.split(l[time_index])
+            for t in times:
+                if t not in tbits:
+                    break
+            else:
+                times = tbits
+            for tbit in tbits:
+                if tbit not in times:
+                    times.append(tbit)
+        for i in list(ambig_indexes):
+            if len(l[i]) != 1:
+                coltypes[i] = 'l'
+                ambig_indexes.remove(i)
+if not times:
+    times = ['1']
+totals = [0] * len(times)
+
+if len(sys.argv) >= 3:
+    import yaml
+    with open(sys.argv[2]) as charf:
+        y = yaml.load(charf)
+        for c in y:
+            c = c.encode('utf-8')
+            CHARS.append((c, '', None, {}))
+else:
+    with open(GAMETEX_DIR + '/Lists/char-LIST.tex') as charf:
+        curr_macro = None
+        curr_desc = None
+        curr_sex = None
+        has_file = False
+        ratings = {}
+        for l in charf:
+            m = CHAR_RATING_RE.search(l)
+            if m:
+                key = None
+                for rk in ratings_keys:
+                    if m.group(1) == rk:
+                        # Trumps any partial matches
+                        key = rk
+                        break
+                    elif re.search(r'\b%s\b' % m.group(1), rk):
+                        assert key is None, (m.group(1), key, rk)
+                        key = rk
+                assert key is not None, m.group(1)
+                ratings[key] = int(m.group(2))
+            if COMMENT_RE.search(l):
+                continue
+            m = PC_RE.search(l)
+            if m:
+                if curr_macro and has_file:
+                    CHARS.append((curr_macro, curr_desc, curr_sex, ratings))
+                if m.group(1) == r'\cTest':
+                    curr_macro = None
+                else:
+                    curr_macro = m.group(1)
+                curr_desc = ''
+                curr_sex = None
+                has_file = False
+                ratings = {}
+                continue
+            if curr_macro is None:
+                continue
+
+            m = NAME_RE.search(l)
+            if m:
+                curr_desc += m.group(1)
+                continue
+
+            m = DESC_RE.search(l)
+            if m:
+                curr_desc += ' (%s)' % m.group(1)
+                continue
+
+            m = FILE_RE.search(l)
+            if m:
+                has_file = True
+                continue
+
+            m = SEX_RE.search(l)
+            if m:
+                curr_sex = m.group(1)
+
+        if curr_macro and has_file:
+            CHARS.append((curr_macro, curr_desc, curr_sex, ratings))
+
+print r'''<html>
+<head>
+<meta charset="utf-8">
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: thin solid black;
+  text-align: center;
+}
+.selected td, .selected th {
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+}
+*[onclick] {
+  cursor: pointer;
+}
+#apps th, #namerow td, .timename, .email {
+  font-size: 8pt;
+}
+#apps th[rowspan] {
+  font-size: 12pt;
+}'''
+COL_HEIGHT = 150
+COL_WIDTH = 32
+print '''th.n {
+  height: %(col_height)spx;
+}
+th.n > div {
+  width: %(col_width)spx;
+}
+th.n > div > div {
+  width: %(col_height)spx;
+  transform: rotate(90deg);
+  margin-left: -%(centering_adj)spx;
+  padding: 0 5px;
+}
+.n {
+  width: %(col_width)spx;
+}'''  % dict(col_height=COL_HEIGHT, col_width=COL_WIDTH,
+            centering_adj=(COL_HEIGHT - COL_WIDTH) / 2.)
+print '''tr.selected {
+  background-color: LightCyan;
+}
+tr.assigned .s {
+  background-color: LightGreen;
+}
+tr.possible th {
+  background-color: LightBlue;
+}
+tr.impossible {
+  background-color: Grey;
+}
+td.filled {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+td.invalid {
+  color: red;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+td.male {
+  background-color: LightBlue;
+}
+td.female {
+  background-color: LightPink;
+}
+td.neuter {
+  background-color: LightYellow;
+}
+td.any {
+  background-color: #B9F;
+}
+
+.n5 {
+  background-color: #99FF99;
+}
+.n4 {
+  background-color: #DDFFDD;
+}
+.n2 {
+  background-color: #FFDDDD;
+}
+.n1 {
+  background-color: #FF9999;
+}
+
+#apps {
+  height: 100%;
+  width: 75%;
+  overflow: auto;
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  left: 0;
+}
+#text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  overflow: auto;
+  padding: 5px;
+}
+dl {
+  margin: 0;
+}
+#casting {
+  padding: 5px;
+  overflow: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+}
+* {
+  box-sizing: border-box;
+}
+
+dt {
+  font-weight: bold;
+}
+</style>'''
+print r'''<script>
+function init() {
+  var bheight = document.getElementById('casting').offsetHeight;
+  document.getElementById('apps').style.borderBottom = (bheight) + 'px solid';
+  document.getElementById('text').style.borderBottom = (bheight) + 'px solid';
+}
+
+function addClass(elem, cls) {
+  if (elem.className) {
+    elem.className += ' ' + cls;
+  } else {
+    elem.className = cls;
+  }
+}
+function removeClass(elem, cls) {
+  if (elem.className == cls) {
+    elem.className = '';
+  } else {
+    elem.className
+        = elem.className.replace(new RegExp(" " + cls + "\\b", "g"), "")
+          .replace(new RegExp("\\b" + cls + " ", "g"), "");
+  }
+}
+function hasClass(elem, cls) {
+  return elem.className.match(new RegExp("\\b" + cls + "\\b"));
+}
+
+// keyed by player, char
+var RATING_MODS = {
+  "1,1": 5,
+  "1,2": 1,
+  "1,4": -10,
+  "1,5": -20,
+  "2,1": 3,
+  "2,2": 1,
+  "2,4": -5,
+  "2,5": -10,
+  "3,1": 0,
+  "3,2": 0,
+  "3,4": 0,
+  "3,5": 0,
+  "4,1": -2,
+  "4,2": -1,
+  "4,4": +1,
+  "4,5": +2,
+  "5,1": -5,
+  "5,2": -2,
+  "5,4": +2,
+  "5,5": +3,
+};
+
+var charRatings = {};
+var lastRow;
+function rowClick(row, index) {
+  document.getElementById('text').innerHTML = texts[index];
+  if (lastRow) {
+    removeClass(lastRow, "selected");
+  }
+  addClass(row, "selected");
+  lastRow = row;
+  var allTimes = document.getElementById("casting").getElementsByTagName("tr");
+'''
+if len(times) > 1:
+    print r'''
+  // Skip first three rows of headers.
+  for (var i = 3; i < allTimes.length; ++i) {
+    allTimes[i].className = 'impossible';
+  }
+  var avail = row.getElementsByClassName("avail")[0].innerHTML;
+  for (var i = 0; i < avail.length; ++i) {
+    document.getElementById('time' + avail[i]).className = 'possible';
+  }
+'''
+print r'''
+  // Deal with ratings
+  var scores = allTimes[2].getElementsByTagName("td");
+  var macros = allTimes[1].getElementsByTagName("td");
+  var playerRatings = {};
+  var headings = document.getElementById("headings").getElementsByTagName("th");
+  var values = row.getElementsByTagName("td");
+  for (var i = 0; i < headings.length; ++i) {
+    if (headings[i].className == "n") {
+      playerRatings[headings[i].innerText.trim()] = values[i+2].innerText;
+    }
+  }
+
+  for (var i = 0; i < scores.length; ++i) {
+    var score = 0;
+    var macro = macros[i].innerText;
+    
+    for (var k in charRatings[macro]) {
+      if (playerRatings[k]) {
+        score += RATING_MODS[[playerRatings[k], charRatings[macro][k]]];
+      }
+    }
+
+    scores[i].innerHTML = score;
+    if (score < 0) {
+      scores[i].className = 'n1';
+    } else if (score < 2) {
+      scores[i].className = 'n2';
+    } else if (score < 5) {
+      scores[i].className = 'n3';
+    } else if (score < 10) {
+      scores[i].className = 'n4';
+    } else {
+      scores[i].className = 'n5';
+    }
+  }
+}
+
+var assignments = {};
+var assigned_rows = {};
+function assign(cell) {
+  if (!lastRow) {
+    return;
+  }
+
+  if (cell.innerHTML) {
+    removeClass(assigned_rows[cell.innerHTML], "assigned");
+    delete assigned_rows[cell.innerHTML];
+    delete assignments[cell.innerHTML];
+  }
+
+  if (!hasClass(lastRow, "assigned")) {
+    addClass(lastRow, "assigned");
+  }
+  var name = lastRow.getElementsByClassName('s')[0].textContent;
+  var email = lastRow.getElementsByClassName('s')[1].textContent;
+  if (assignments[name]) {
+    assignments[name].innerHTML = "";
+    assignments[name].className = "";
+  }
+  assignments[name] = cell;
+  assigned_rows[name] = lastRow;
+  var gender;
+  var genderNode = document.getElementById('macros').children[
+      [].indexOf.call(cell.parentElement.children, cell) - 2];
+  var gender_possibilities;
+  if (genderNode.className == 'any') {
+    gender_possibilities = ['female', 'male'];
+  } else {
+    gender_possibilities = [genderNode.className];
+  }
+  if (cell.className == "") {
+    gender = gender_possibilities[0];
+  } else {
+    gender = cell.className.split(' ')[1];
+    if (cell.innerHTML == name) {
+      var i = gender_possibilities.indexOf(gender);
+      if (i + 1 >= gender_possibilities.length) {
+        gender = gender_possibilities[0];
+      } else {
+        gender = gender_possibilities[i + 1];
+      }
+    }
+  }
+  cell.innerHTML = name;
+  if (cell.parentElement.className == "impossible") {
+    cell.className = "invalid " + gender;
+  } else {
+    cell.className = "filled " + gender;
+  }
+  cell.dataset.email = email;
+}
+
+function getRun(run) {
+  var data = '%% Name this file Lists/runN-LIST.tex or similar, and set\n'
+           + '%% \\gamerun to N in your .cls file, where N is a number.\n\n';
+  var row = document.getElementById('time' + run);
+  var cell = row.firstElementChild;  // Slot letter
+  cell = cell.nextElementSibling;  // Slot description
+  cell = cell.nextElementSibling;  // First character
+  var macros = document.getElementById('macros');
+  var macro = macros.firstElementChild;
+  while (cell.className != "download") {
+    var state = cell.className.split(' ')[0];
+    var gender = cell.className.split(' ')[1];
+    if (state == "filled" || state == "invalid") {
+      data += '\\updatemacro{' + macro.innerHTML + '}{\n  \\rs\\MYplayer{' + cell.innerHTML
+            + '}\n  \\rs\\MYemail{' + cell.dataset.email + '}\n';
+      if (gender != macro.className) {
+        data += '  \\rs\\MYsex{\\' + gender + '}\n';
+      }
+      data += '}'
+      if (state == "invalid") {
+        data += '  % Time conflict!';
+      }
+      data += '\n';
+    } else {
+      data += '%% No one cast for ' + macro.innerHTML + '!\n';
+    }
+    cell = cell.nextElementSibling;
+    macro = macro.nextElementSibling;
+  }
+  console.log(data);
+  var link = document.createElement("a");
+  link.download = 'runN-LIST.tex';
+  link.href = 'data:,' + encodeURIComponent(data);
+  link.click();
+  document.getElementById('text').innerHTML = '<pre>' + data + '</pre>';
+}
+
+var texts = [];
+</script>
+</head>
+<body onload="init()">
+<div id="apps">
+<table>
+<tr>'''
+
+for sn in SPECIAL_NAMES:
+  print '<th rowspan="2">%s</th>' % sn
+x = 0
+while x < len(supheadings):
+    val = supheadings[x]
+    span = 0
+    while x < len(supheadings) and supheadings[x] == val:
+        if coltypes[x] in ('n', 't'):
+            span += 1
+        x += 1
+    if span == 0:
+        continue
+    if span > 1:
+        attrbit = ' colspan="%s"' % (span)
+    else:
+        attrbit = ''
+    print '<th%s>%s</th>' % (attrbit, cgi.escape(val))
+
+print '</tr><tr id="headings">'
+
+for i in xrange(len(headings)):
+    item = headings[i]
+    if coltypes[i] in ('n',):
+        print '<th class="%s"><div><div>%s</div></div></th>' % (coltypes[i], cgi.escape(item))
+    elif coltypes[i] == 't':
+        print '<th>Avail</th>'
+
+print '</tr>'
+
+for index in xrange(len(apps)):
+    a = apps[index]
+    htmlbit = '<dl>'
+    print '<tr onclick="rowClick(this, %s)">' % index
+    for sn in SPECIAL_NAMES:
+        print '<td class="s %s">%s</td>' % (
+            sn.lower(), a[special_col_index_map[sn]].replace('@', '<wbr>@'))
+    for i in xrange(len(a)):
+        item = a[i]
+        if coltypes[i] in ('n',):
+            print '<td class="%s n%s">%s</td>' % (coltypes[i], item,
+                                                  cgi.escape(item[0])
+                                                  if len(item) > 0 else '')
+        elif coltypes[i] == 't':
+            tbits = TIME_SPLIT_RE.split(item)
+            for t in tbits:
+                if t:
+                    totals[times.index(t)] += 1
+            print '<td class="avail">%s</td>' % ''.join(string.uppercase[ti] for ti in xrange(len(times)) if times[ti] in tbits)
+        elif coltypes[i] != 's' and item:
+            htmlbit += '<dt>%s</dt><dd>%s</dd>' % (
+                cgi.escape(headings[i], True), cgi.escape(item, True))
+    htmlbit += '</dl>'
+    print '</tr><script>'
+    print 'texts[%s] = "%s";' % (index, htmlbit.replace('\n', '<br>'))
+    print '</script>'
+
+print '''</table>
+</div>'''
+
+def get_sex_class(csex):
+    if csex == r'\male':
+        return 'male'
+    elif csex == r'\female':
+        return 'female'
+    elif csex == r'\neuter':
+        return 'neuter'
+    else:
+        return 'any'
+
+print '<div id="text">Select an app to see free-answer questions here.</div>'
+print '<div id="casting"><table>'
+print '<tr id="namerow"><th colspan="2" rowspan="3">Time Slot</th>'
+for cmacro,cname,csex,cratings in CHARS:
+    print '<td class="%s">%s</td>' % (get_sex_class(csex), cname)
+print '<th rowspan="3">Get</th>'
+print '</tr>'
+print '<tr id="macros">'
+for cmacro,cname,csex,cratings in CHARS:
+    print '<td class="%s">%s</td>' % (get_sex_class(csex), cmacro)
+print '</tr>'
+print '<tr id="match">'
+for cmacro,cname,csex,cratings in CHARS:
+    print '<td class="%s">?</td>' % (get_sex_class(csex))
+    print '<script>'
+    print 'charRatings["\\%s"] = {' % cmacro
+    for r in cratings:
+        print '  "%s": %s,' % (r, cratings[r])
+    print '};'
+    print '</script>'
+print '</tr>'
+for i in xrange(len(times)):
+    print '<tr id="time%s">' % (string.uppercase[i])
+    print '<th>%s: %s</th>' % (string.uppercase[i], totals[i])
+    print '<th class="timename">%s</th>' % TIME_SUB_RE.sub('', times[i])
+    for cmacro,cname,csex,cratings in CHARS:
+        print '<td onclick="assign(this)"></td>'
+    print '<td class="download"><a href="#" onclick="getRun(\'%s\'); return false">Slot %s</a></td>' % (
+        string.uppercase[i], string.uppercase[i])
+    print '</tr>'
+print '</table></div>'
+print '''</body>
+</html>'''

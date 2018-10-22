@@ -1,0 +1,141 @@
+\documentclass[sheet]{iron}
+
+\begin{document}
+
+\name{GM Instructions}
+
+\section{Materials Needed}
+
+\begin{itemz}[Iron GM Base Materials]
+\item 12 origami butterflies, 3 each of four different colors (one per element)
+\item 12 large envelopes for character packets
+\item 12 smaller envelopes to put the butterflies in
+\item Scissors
+\item A sharpie to label character packets
+\end{itemz}
+
+\begin{itemz}[Additional Materials]
+\item 60 flat glass marbles, beads, or other tokens to represent elemental
+  gems, 15 in each color
+\item Scotch tape
+\end{itemz}
+
+\section{Printing and Production}
+
+\begin{itemize}
+\item Print out the included documents: one copy each of
+  \texttt{listchar-PRINT.pdf}, \texttt{badge-PRINT.pdf}, 
+  \texttt{butterflies.pdf}, and
+  \texttt{carditem-PRINT.pdf}, and 15 copies each of
+  \texttt{rules-scenario.pdf} and \texttt{whos-who.pdf}.
+\item Put each character sheet in a large envelope and label the
+  envelope with the character name.
+\item Cut out the envelope labels (``So-and-so's spirit butterfly'') and tape each label to a small envelope.
+  Put a butterfly of the color corresponding to the gem the label
+  requires the most of in the envelope and close it.  Put each envelope
+  in the character packet indicated on the label.
+\item Cut out each badge, noting which packet the badge goes in by the
+  page header, and put the badge in the proper packet.
+\item Look at the ``Notables at the Convergence'' sheet and put 5 elemental
+  gems in each packet of the color corresponding to the delegation they
+  are in.  (Thus, their apparent caste, as opposed to butterflies, which
+  are by actual elemental affinity.)
+\item Put the ``Butterfly Placement Area: Move Earth above all other castes''
+  sheet in \cRoyalty{\full}'s packet, and keep the other Butterfly Placement
+  Areas aside.
+\item Keep the rules sheets and these ``Notables at the Convergence'' sheets
+  separate, as piles for players to pick up as they arrive.
+\end{itemize}
+
+\section{Setup and Running}
+
+\begin{itemize}
+\item Set up the remaining Butterfly Placement Areas in obvious locations,
+  for voting on the Realignment.
+\item As players arrive, assign them a character packet and give them
+  a copy of the rules and the ``Notables at the Convergence'' sheet.
+\item After players have had time to read their sheets, start game.
+\item Set a timer to keep the game on schedule: remind players to vote
+  on Questions 45 minutes in (but ideally let \cRoyalty{\full} or
+  \cFakePriest{\full} run the actual voting), and resolve the
+  Realignment 60 minutes in.  End game after an hour and a half, but
+  feel free to fudge this slightly based on player mood.
+\item Aside from the schedule, this game should not require particular
+  GM intervention.  Don't let anyone accomplish anything beyond flavor with
+  magic, violence, or leaving the Temple.  There's nothing physically
+  preventing characters from leaving, but discourage players from doing
+  so because staying in game is more fun.
+\item Keep wrapup short, giving each character at most a few moments to
+reveal any remaining secrets.
+\end{itemize}
+
+\section{Characters to Cut}
+
+If you need to cut characters, cut characters from the bottom of this list
+up.  (Game is best run with all 12 characters, and shouldn't run at all
+with fewer than 5.)  If you cut characters, give additional elemental gems to
+\cRoyalty{\full} as indicated next to the last character you didn't cut
+so there are enough gems in game for everyone
+to summon their spirit butterfly.
+
+\begin{enum}
+\item \cRoyalty{\full}
+\item \cMulan{\full}
+\item \cGuildmaster{\full}
+\item \cSpy{\full}
+\item \cFakePriest{\full} (one air, two fire, one earth)
+\item \cLieutenant{\full} (two air, two earth)
+\item \cHotPerson{\full} (four earth)
+\item \cRealPriest{\full} (one water, five earth)
+\item \cServant{\full} (one air, two water, one earth)
+\item \cPatriot{\full} (two air, three water)
+\item \cBastard{\full} (four water)
+\item \cTrickster{\full}
+\end{enum}
+
+\section{Plot Overview}
+
+The basic plot is pretty straight-forward.  There are the three Questions,
+each of which starts with two people in favor and two people against.
+None of these Questions have any in-game effect.
+
+There's also is the Restructuring, which everyone has an opinion on:
+three people in favor of each of the possible swaps,
+\cFakePriest{\full} favoring the status quo, \cTrickster{\full} just
+going for what will cause the most chaos, and \cRoyalty{\full} having
+a secret extra option to move the Earth caste right to the top.
+There's no way to add other options to the Restructuring;
+\cRoyalty{}'s thing is something they put a lot of work into figuring
+out pregame.  The only in-game effect of the Restructuring is to
+change what marriages are legal, but hopefully players will play up
+the new social order.
+
+There's a lot of disguises and forbidden romance and mistaken
+identity, but hopefully that'll mostly take care of itself.  Encourage
+people to play up the ridiculousness and not take keeping their
+secrets too seriously.
+
+\subsection{Setting Truths}
+
+There are some setting details that not everyone starts off knowing but
+also aren't big secrets, that you can reveal in response to player questions
+at your discretion.
+
+\begin{itemize}
+\item At the last Convergence, 100 years ago, nothing changed in the
+  Restructuring.
+\item The marriage prohibitions are based on your actual caste, not
+  your apparent caste, and no proper cleric would marry someone they
+  thought was lying about their caste.
+\item Elemental gems are a naturally-occurring resource mined in \sHomeCountry{}
+  and found nowhere else.
+\item Many people of various castes have some ability to use magic of the
+  appropriate element, but in general magic takes a lot of preparation,
+  so no one's expecting anyone to be doing anything significant with it today.
+\item The religion in \sHomeCountry{} believes in gods, elemental spirits
+  and saints, but most people have never encountered any of these themselves.
+\item Other countries don't have castes or elemental magic the way \sHomeCountry{} does.
+\item The other countries are in favor of \sHomeCountry{} exporting elemental gems and oppose the use of magic in warfare.  \sTreatyCountry{} is in favor of the alliance, whereas the other neighboring countries (chiefly \sMulanCountry{}, the country that tried to invade, and \sSpyCountry{}) oppose it.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass{gameki}
+\usepackage{\gamekilib/text}
+
+\begin{document}
+
+\SURFACEMAP{PC}{
+From: \gameclassname-gms@mit.edu\\
+To: \MYemail\\
+Subject: [\gamename] Casting Hint
+
+Name: \MYname\ (\mfn{M}{F}{N})
+
+\MYcastinghint
+}
+
+\parsedmacros
+
+\end{document}

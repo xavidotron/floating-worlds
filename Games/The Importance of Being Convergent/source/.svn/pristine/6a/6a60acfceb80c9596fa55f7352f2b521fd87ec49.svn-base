@@ -1,0 +1,46 @@
+\documentclass[char]{iron}
+\begin{document}
+
+\name{\cSpy{}}
+
+%% quote examples
+%\bigquote{``Use this macro for large quotes of prose and such.  It justifies everything like a paragraph, except with no indentation.''}{-- The Author}
+
+%\cenquote{``This macro is good\\ For shorter quotes\\ Or things like song lyrics:\\ It centers.''}{-- The Author}
+
+Ugh. Your first real spy mission outside \sSpyCountry{}'s borders, and the powers that be have decided to send you to \emph{\sHomeCountry{}}, of all places. The food is terrible, for one thing. And their rigid caste system (based on mystical elemental superstitions, naturally) is quaintly absurd. But unfortunately, \sHomeCountry{} is also a considerable military power, so \emph{somebody} has to keep an eye on things. You just wish it didn't have to be you.
+
+You've done an impressive job so far, truth be told! You've managed to infiltrate a once-a-century\ldots{} council\ldots{} \emph{thing} that appears to be incredibly meaningful to these people. You're posing as the leader of the lowly Earth caste's delegation to the meeting, which turned out to be surprisingly easy. You were expecting to have to bribe the other Earth delegates not to rat you out (and \sSpyCountry{} certainly provided you with more than enough money to satisfy a couple of impoverished farmers), but they didn't seem to notice that you weren't actually the local Earth elder. Maybe the peasant community just isn't as tight-knit as you expected. Or maybe your disguise is just that good. Yeah, that's probably it.
+
+The issues being discussed at this meeting are of great interest to you and your nation. First of all, \sHomeCountry{}'s military is evidently developing some sort of devastating magical weapon. Obviously these people need to be convinced that such a thing would be an unspeakable atrocity. There is also talk of a mutual defense treaty with \sTreatyCountry{}, and the last thing \sSpyCountry{} wants is for \sHomeCountry{} to gain powerful allies. And then there's the issue of trade---should the Water merchants be allowed to export \sHomeCountry{}'s oh-so-precious glowing gems beyond the nation's borders? This would be an distressingly profitable endeavor for \sHomeCountry{}, but you've also heard an intriguing suggestion that transporting the gems might somehow drain \sHomeCountry{} of its unique magical power\ldots{} You'll need to learn more before you can make up your mind.
+
+And on top of all that, there's the ceremonial ``realignment of the heavens,'' which sounds like a load of nonsense to you but of course these people take it very seriously. It involves some sort of vote\ldots{} with magical butterflies(?)\ldots{} that will reshape the nation's social hierarchy for the next century. Because \emph{that} makes sense. However, even this could be turned to your advantage. As you understand it, if Fire---the element of the warrior caste---becomes less powerful in the next cycle, then \sHomeCountry{} would be at a military disadvantage. Which your superiors back home would be \emph{very} happy to hear.
+
+Of course, this mission is not \emph{entirely} without its perks. A member of the Air nobility---one \cHotPerson{\full}---has caught your eye. Normally you feel no attraction to these strange foreigners, but \cHotPerson{} has an inexplicable allure that transcends cultural boundaries. Perhaps you could arrange an opportunity to speak with them more privately\ldots{}
+
+\begin{itemz}[Goals]
+  \item Learn as much as you can about \sHomeCountry{}, to put in your report when you return to \sSpyCountry{}.
+  \item Make sure the council votes against research into powerful magical weaponry.
+  \item Make sure the council votes against the treaty with \sTreatyCountry{}.
+  \item Make sure the council realigns the heavens to make Fire less powerful.
+  \item See if you can manage to spend some time with the enchanting \cHotPerson{}. No reason you can't enjoy yourself a little, as long as you're here!
+\end{itemz}
+
+\begin{itemz}[Notes]
+  \item Although you are posing as an Earth elder, it seems that your inner elemental attunement or whatever is actually closer to Fire. You'll need to collect two Fire gems and one of each other element to activate your\ldots{} mystical voting butterfly. Yes, the sooner you can get out of this place, the better.
+\end{itemz}
+
+
+%%%%%
+%% List contacts, using \contact{<char macro>}
+\begin{contacts}
+  \contact{\cRoyalty{}} The ruler of \sHomeCountry{}. Hopefully you will be able to learn more about them.
+  \contact{\cMulan{}} The leader of \sHomeCountry{}'s military. It would be useful to learn what plans they have in store.
+  \contact{\cGuildmaster{}} As the Guildmaster of the Water caste, they probably know a lot of valuable information about the state of \sHomeCountry{}'s finances.
+  \contact{\cServant{}} A servant in \cRoyalty{}'s household, who also happens to be a member of your Earth delegation.
+  \contact{\cPatriot{}} The other member of the Earth delegation.
+  \contact{\cHotPerson{}} A stunningly attractive individual, and a member of the powerful Air caste. Unfortunately, your disguise as a lowly Earth peasant might make it difficult to get to know them more intimately\ldots{}
+\end{contacts}
+
+
+\end{document}

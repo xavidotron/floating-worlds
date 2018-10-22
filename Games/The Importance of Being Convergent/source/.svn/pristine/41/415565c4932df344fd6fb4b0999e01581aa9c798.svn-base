@@ -1,0 +1,93 @@
+\documentclass[char]{iron}
+\begin{document}
+\name{\cBastard{}}
+
+Ah, if your father could see you now.  Attending the Convergence on the
+right hand of the monarch themself.   He'd wish he'd treated you better,
+wouldn't he?
+
+See, your father Burmos Mossen isn't the sort of person to prize family.  Or
+loyalty.  Or really anything other than himself.  He didn't let the
+fact that he had a wife keep him away from your mother.  Nor did the
+fact that your mother had you keep him from abandoning her like the
+rest.  Nor has he every shown any love for you.  You hear it's
+different in the other castes, but here in the Air caste, bastards
+aren't treated kindly.  You don't have any of your father's status or
+stature.  You don't have any claim on his wealth or holdings.  You're
+not \cBastard{\real{\first}} Mossen.  You're just
+\cBastard{\real{\full}}.  And you're a mark of shame to your mother.
+
+But you weren't content to accept the position society gave you and meekly
+waste away.  No, you had ambitions.  Many in the Air caste turn
+their idle hands to the finer arts.  You turned yours to the art of disguise.
+The art of manipulation.  The art of deceit.
+
+Finally, you were ready.  You did some research, found a family with good
+blood but widely dispersed, with branches all over the kingdom.  One where
+the records were not well-maintained.  You modified your appearance
+to be just what someone in the capital would expect.  And then you set
+yourself up as \cBastard{\intro}, back to the capitol from the provinces.
+You'd done your research.  You could make smalltalk, tell stories about
+your family out there, and it all fit together.  You never gave anyone
+a reason to suspect you.
+
+And it worked.  You played the politics game, took advantage of the petty
+rivalries among Air nobles.  And your position gradually rose, until you
+were moving in the highest circles and serving as a respected member of
+the Legislative Council. And now you're even attending the
+Convergence with the most influential people in \sHomeCountry{}.  (And some
+Earth and Water lowlifes.  But you can't have everything.)
+
+And there's no one you'd rather be spending time with than \cMulan{\intro}.  The
+hero of the kingdom for single-handedly stopping the \sMulanCountryAdj{}
+incursion.  Brave beyond all measure.  Charming and cultured.  And beyond
+compare in terms of appearance.  Yes, you've had your sights on \cMulan{}
+for a long time.  And they've shown some interest as well.  You have hope
+for a proposal.
+
+Except for \cGuildmaster{\full}.  They're some high-up merchant leech,
+and they've been courting \cMulan{\first} as well.  You know they're
+just trying to cash in on the reputation of a hero for business
+advantage, but you've so far held off on badmouthing them too much in
+front of your love to not appear too jealous.  But now is the
+auspicious time for a wedding, and thus also the time to act.  You
+need to show your confidence and superiority, take
+\cGuildmaster{\first} down in public, and show \cMulan{\first} that
+you're willing to fight for your love.
+
+But you're not above a little manipulation to cover all the bases.
+The Realignment is imminent, and if you ensured that Air and Fire got
+swapped, then there'd be no way for \cGuildmaster{\first} to steal
+your love away from you.  Plus, that'd be boosting the status of you
+love; it's win-win.
+
+And there's one other thing.  The Fire caste is trying to remove the traditional
+prohibition in using fire magic in warfare.  You see no reason why you
+should be keeping the weapons your love needs away from them.  You're
+sure you can use your influence to help the cause.
+
+This is a momentous event.  You've worked hard to get here.  You're
+going to take full advantage of it.
+
+\begin{itemz}[Goals]
+\item Enjoy hob-nobbing with the rich and famous and snubbing those below
+  you.
+\item Use the Realignment to swap Air and Fire to keep \cMulan{} from marrying
+  that Water creep, \cGuildmaster{}.
+\item Confront \cGuildmaster{}, challenge them to a duel, do anything you
+  can to get them to give up their pursuit of \cMulan{}.
+\item Convince \cMulan{} to marry you on this auspicious occasion.
+\item Ensure that the tradition against using fire magic in combat is
+  rescinded.  Your love deserves the best weapons the kingdom can provide.
+\end{itemz}
+
+\begin{contacts}
+\contact{\cMulan{}} The hero of the kingdom and your true love.
+\contact{\cGuildmaster{}} That no-good Water scumbag who's trying to steal
+your love away from you.
+\contact{\cRoyalty{}} The ruler of \sHomeCountry{} and the leader of the Air
+delegation.  You don't \emph{think} they'll recognize you, but\ldots{}
+\contact{\cHotPerson{}} A fellow noble of the Air caste---and nearly as attractive as your love, \cMulan{}. They might be a useful ally if you wish to maintain your ruse.
+\end{contacts}
+
+\end{document}

@@ -1,0 +1,6 @@
+\documentclass{gameki}
+\begin{document}
+
+\parsedmacros
+
+\end{document}

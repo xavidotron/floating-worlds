@@ -1,0 +1,15 @@
+Improve error message and handle mail when abils, etc are empty.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   bin/mail
+#	modified:   bin/prod_lib.py
+#
+# Changes not staged for commit:
+#	modified:   Mail/sheets.tex
+#

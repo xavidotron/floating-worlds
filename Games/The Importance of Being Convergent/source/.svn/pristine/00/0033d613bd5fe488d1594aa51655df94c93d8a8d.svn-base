@@ -1,0 +1,130 @@
+\documentclass[char]{iron}
+\begin{document}
+\name{\cRealPriest{}}
+
+You've been around for a while.  You've seen a lot.  But this is going to be
+more excitement than you've seen in a long time.
+
+You're \cRealPriest{\real{\full}}.  You were born into the Water
+caste, to a well-off merchant family.  Your parents wanted you to go
+into trade in one way or another, as most Water children do.  But you
+never saw the appeal of balances and good flows.  The regular drudgery
+and repetitive pattern of it all.
+
+So you took one of the more unusual career options available to the
+Water caste: the path of the cleric.  You went to temple school and
+learned about the gods, the elemental spirits, and \sHomeCountry{}'s
+unique elemental magic.  You learned the traditions and the rituals
+and the festivals.  You learned the history of the founding of the
+temples and the Saints and the royal lines.  And you learned of the
+Convergences, every century, that have the power to dramatically
+reshape your society.
+
+This was certainly more interesting then ledgers and caravans, and you
+soaked it up like a sponge.  You worked your way up the temple hierarchy,
+impressing many with your eloquence and your learning.  Eventually, after
+many years, you were the Head Cleric at the temple in the capitol, a
+position of great respect and influence, especially for one of the Water
+caste.  You served in this capacity for many years, guiding ceremonies
+and religious life for people of all castes.
+
+After a decade or so, however, you'd become set in your ways.  The
+festival calendar was a constant pressure, and you had many essential
+functions to carry out.  There was no more excitement or wonder in it.
+You were no longer learning new things about the world or about the
+past.  You were some sort of clockwork figure, fulfilling a role
+mechanically day after day and year after year.  You were just a
+different kind of facilitator for a different kind of commerce.
+
+But then, one day recently, an opportunity came before you.  You were
+in the hall, preparing for a festival service, when a thin and haggard
+person burst in in a panic.  They called ``Sanctuary!'' and said they
+feared for their life.  You took them aside, calmed them down, and
+eventually got the story, one a bit less sympathetic than you
+originally thought.
+
+See, this person, \cFakePriest{\real{\full}}, was of the Fire caste and had
+been a soldier for years.  When the borders had been at peace, that
+had been fine.  Do some drills, stay in shape, then in the evening
+visit the taverns and have a good time.  But recently, it appears,
+there'd been troop movements in \sMulanCountry{}.  Talk of invasion.
+And the fort where \cFakePriest{\real{\first}} was stationed was
+likely to take the brunt of any invasion, or be the first sent out on
+a preemptive strike.  Suddenly the idea of being a soldier was less
+appealing.  So they'd deserted, but they knew their superiors would
+not think too kindly of this when they got caught.
+
+You saw the fear in \cFakePriest{\real{\first}}'s eyes.  But to you,
+this talk of war and conflict just seemed like a wonderful adventure.
+It was like a veil had been lifted from your eyes.  Your path was
+clear.  You made a few arrangements (you both needed cover for
+\cFakePriest{\real{\first}}'s time away from the fort and to ensure
+that they'd get invited to the Convergence), and then you put your plan
+into action.  You put together some disguises and swapped places.
+
+Of course, without your years of learning,
+\cFakePriest{\real{\first}}'s going to be a disaster as
+\cFakePriest{}, but that's their problem.  They were certainly happy
+enough to go along with your proposal.  Meanwhile, you've always kept
+in good shape, so while it'll be a bit of a leap to pass yourself off
+as a soldier you're sure you can manage it.
+
+Now, it is the time of the Convergence, and there was no
+way you were going to miss this once-in-a-lifetime opportunity, even
+as you were leaving your old life behind.  Which is why you made those
+arrangements.  You're not sure what the others in the Fire delegation
+think of you, but that's no matter.  You're going to be present at the
+most powerful mystical event in \sHomeCountry{}!  And you won't have to
+spend the whole time officiating!  Or performing any of those so-called
+``auspicious'' marriages!  (Not that that ``tradition'' has any real
+basis in anything but hype.)
+
+While you don't have any second thoughts, there are still some things
+you care about from your old life.  Chief among them is this insane
+proposal to start exporting elemental gems.  Of all the foolish ideas!
+The elemental gems are the source of \sHomeCountry{}'s magic and soul,
+its unique relationship with spirits and gods!  Ship them elsewhere
+and you'll just be standing on the corpse of a country.  And what good
+will your piles of gold be when this drained husk of a kingdom has
+fallen into ruin?  No, you must keep the elemental gems in
+\sHomeCountry{}, whatever the cost.
+
+Of course, the Realignment is the most important part of the Convergence.
+Full of possibility.  And as you start on your new life, you can't
+help but see the possibilities of greater excitement in your future.  If
+the Fire caste ruled \sHomeCountry{}, we'd surely stop limiting ourselves
+to defensive wars, and start our own campaign, seize some foreign provinces.
+Now that'd give you the excitement you're looking for.  It might be a little
+fiddly to get the gems you need for a Water butterfly when your delegation
+only gave you Fire gems, but you're sure you can manage.
+
+You may need to be persuasive when it comes to the other delegates, though. Inertia is a powerful thing, and those with the most influence also have the most interest in maintaining the status quo. According to some historical texts you once pored over, Air has held the highest status for centuries, and there is no written record of Earth ever being anywhere but on the bottom. At the most recent Convergence, one hundred years ago, the delegates voted not to realign the elements at all!
+
+But you must not lose hope. There's so much you have to look forward to, you can hardly wait.  And it all starts now.
+
+\begin{itemz}[Notes]
+\item You know the right way to do all the ceremonies in game.  The person
+  you swapped with is going to do them all wrong.  Feel free to make
+  up what they're doing wrong; no one else is in a position to know better
+  than you.
+\end{itemz}
+
+\begin{itemz}[Goals]
+\item Enjoy and fully experience the Convergence without having to run
+  everything.
+\item Ensure that the tradition against exporting elemental gems is maintained.
+\item Try to steer the Realignment to move Fire to the top, to ensure excitement
+  in your new life.
+\end{itemz}
+
+\begin{contacts}
+\contact{\cFakePriest{}} The foolish Fire soldier, actually named
+\cFakePriest{\real{\full}}, who you switched places with.
+\contact{\cRoyalty{}} The ruler of \sHomeCountry{}, who you sometimes had
+ceremonial interactions with. They don't seem to have recognized you as the real Head Cleric.
+\contact{\cMulan{}} A hero of \sHomeCountry{}, who was intrumental in repelling the recent \sMulanCountryAdj{} invasion. They are the leader of the Fire delegation to the Convergence.
+\contact{\cLieutenant{}} The other Fire delegate, and a distinguished soldier in their own right.
+\contact{\cHotPerson{}} An extremely attractive Air noble who has caught your eye. Could romance be in the air tonight?
+\end{contacts}
+
+\end{document}

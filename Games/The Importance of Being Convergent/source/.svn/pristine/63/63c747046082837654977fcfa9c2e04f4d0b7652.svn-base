@@ -1,0 +1,56 @@
+\documentclass[sheet]{iron}
+
+\makeatletter
+
+\begin{document}
+
+\title@display{\Huge Butterfly Placement Area:\\Exchange Air and Fire}
+
+\vskip2in
+
+\begin{center}
+\includegraphics[width=6in]{\postscript/Butterfly}
+\end{center}
+
+\cleardocument
+
+\title@display{\Huge Butterfly Placement Area:\\Exchange Fire and Water}
+
+\vskip2in
+
+\begin{center}
+\includegraphics[width=6in]{\postscript/Butterfly}
+\end{center}
+
+\cleardocument
+
+\title@display{\Huge Butterfly Placement Area:\\Exchange Water and Earth}
+
+\vskip2in
+
+\begin{center}
+\includegraphics[width=6in]{\postscript/Butterfly}
+\end{center}
+
+\cleardocument
+
+\title@display{\Huge Butterfly Placement Area:\\Maintain the Status Quo}
+
+\vskip2in
+
+\begin{center}
+\includegraphics[width=6in]{\postscript/Butterfly}
+\end{center}
+
+\cleardocument
+
+\title@display{\Huge Butterfly Placement Area:\\Move Earth above all other castes}
+
+\vskip2in
+
+\begin{center}
+\includegraphics[width=6in]{\postscript/Butterfly}
+\end{center}
+
+
+\end{document}

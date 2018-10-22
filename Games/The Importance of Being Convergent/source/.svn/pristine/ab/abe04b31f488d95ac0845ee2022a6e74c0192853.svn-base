@@ -1,0 +1,37 @@
+\documentclass[sheet]{iron}
+
+\begin{document}
+
+\name{Notables at the Convergence}
+
+\begin{contacts}[Air Delegation]
+\contact{\cRoyalty{}} Ruler of all \sHomeCountry{}, with a long line
+of rulers before them.
+\contact{\cBastard{}} A noble from a prestigious family.
+\contact{\cHotPerson{}} A young noble.
+\end{contacts}
+
+\begin{contacts}[Fire Delegation]
+\contact{\cMulan{}} A general and the hero of the \sMulanCountryAdj{} Incursion,
+credited with saving \sHomeCountry{} from great destruction in the
+recently-concluded war with \sMulanCountry{}.
+\contact{\cLieutenant{}} A lieutenant at the border.
+\contact{\cRealPriest{}} A distinguished soldier.
+\end{contacts}
+
+\begin{contacts}[Water Delegation]
+\contact{\cGuildmaster{}} Guildmaster over the Water merchants, an influential
+  person and shrewd negotiator.
+\contact{\cFakePriest{}} Head Cleric at the Temple in the capitol, here
+  to direct the ceremonies and presumably to perform auspicious marriages
+  after the Realignment.
+\contact{\cTrickster{}} A prosperous Water merchant.
+\end{contacts}
+
+\begin{contacts}[Earth Delegation]
+\contact{\cSpy{}} Some sort of elder among the peasantry.
+\contact{\cServant{}} A royal servant.
+\contact{\cPatriot{}} A farmer.
+\end{contacts}
+
+\end{document}

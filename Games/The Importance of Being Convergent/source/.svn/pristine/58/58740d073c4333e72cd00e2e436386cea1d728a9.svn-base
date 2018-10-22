@@ -1,0 +1,16 @@
+%% namebadges printed
+\documentclass[badges]{iron} %% make sure name of class is correct
+
+
+\usepackage{xstring}
+\begin{document}
+
+\let\NB=\NameBadge
+\def\NameBadge#1#2#3#4{
+  \IfSubStr{#4}{\type}{\NB{#1}{#2}{#3}{#4}}{}
+}
+
+\def\type{Fire}
+\production
+
+\end{document}

@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 38e1fff8dc5b4d7b63cc1d6feeecbc285551e4ef Xavid Pretzer <xavid@mit.edu> 1538485839 -0400	clone: from https://github.com/xavidotron/gameki-tools.git
+38e1fff8dc5b4d7b63cc1d6feeecbc285551e4ef 66fbf00a6861b193443af0cc387598384ea2b81d Xavid Pretzer <xavid@mit.edu> 1538533383 -0400	commit: Support getting characters from a yaml file instead of char-LIST.tex.
+66fbf00a6861b193443af0cc387598384ea2b81d 6903336b52502e23e6a95cdd4dc96ec8a0609bfb Xavid Pretzer <xavid@mit.edu> 1538543254 -0400	commit: Handle a different ff ligature and also tolerate different luatex stuff.
+6903336b52502e23e6a95cdd4dc96ec8a0609bfb d660a0b2d70c4175ae15ffa6e5f3ef9ce38dd654 Xavid Pretzer <xavid@mit.edu> 1538543294 -0400	commit: Improve error message and handle mail when abils, etc are empty.

@@ -1,0 +1,21 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import subprocess, sys, os, glob
+import yaml
+import argparse, getpass
+
+from book_lib import get_book_paths
+
+parser = argparse.ArgumentParser()
+parser.add_argument('macros', nargs='*', help="macros to produce (default all)")
+parser.add_argument("--pdf-dir", help="copy output pdfs to here")
+parser.add_argument("--names", help="use names instead of macros for filenames",
+                    action='store_true')
+parser.add_argument("--run",
+                    help="set GAMERUN to this, proding books for this run")
+args = parser.parse_args()
+
+for outpath in get_book_paths(run=args.run, use_names=args.names,
+                              pdfdir=args.pdf_dir, macros=args.macros):
+    print 'Wrote %s.' % outpath

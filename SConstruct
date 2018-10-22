@@ -4,6 +4,27 @@ import yaml
 from mako.template import Template
 from mako.lookup import TemplateLookup
 
+def WalkTree(d):
+    assert d.endswith('/'), d
+    matches = []
+    for root, dirnames, filenames in os.walk(d):
+        if ('/.' in root or root.startswith(d + 'Out')
+            or root.startswith(d + 'static') 
+            or root.startswith(d + 'Library')):
+            continue
+        for filename in filenames:
+            if (filename.endswith('~') or filename.endswith('.pyc')
+                or filename.startswith('.')):
+                continue
+            if root == d and (
+                filename.endswith('.log') or filename.endswith('.pdf')
+                or filename.endswith('.out')):
+                continue
+            if filename.startswith('run') and filename.endswith('-LIST.tex'):
+                continue
+            matches += Glob(os.path.join(root, filename))
+    return matches
+
 def get_name(f):
     if str(f).endswith('game.yaml'):
         return str(f).split('/')[-2]
@@ -33,6 +54,7 @@ def get_game(yamlf, include_locals):
             for root, directories, filenames in os.walk(dirname):
                 for f in filenames:
                     d['example'].append(os.path.join(root[len(dirname):], f))
+            d['example'].sort(key=lambda s: (s.count('/'), s))
     return d
 
 def yaml_mako(local):
@@ -65,8 +87,14 @@ for yamlf in Glob('Games/*/game.yaml'):
     Depends(c, Glob('Games/%s/*' % stem))
 
     c = Zip('docs/game/%s/%s.zip' % (stem, stem),
-            Glob('Games/%s/static/*' % stem),
+            Glob('Games/%s/static/*' % stem)
+            + Glob('Games/%s/static/*/*' % stem),
             ZIPROOT='Games/%s/static/' % stem)
+    Depends(c, 'SConstruct')
+
+    c = Zip('docs/game/%s/source.zip' % (stem),
+            WalkTree('Games/%s/source/' % stem),
+            ZIPROOT='Games/%s/source/' % stem)
     Depends(c, 'SConstruct')
 
 for yamlf in Glob('Games/*.yaml'):
@@ -100,11 +128,13 @@ def make_index(title, prefix, gamefs=None, recommendedfs=None):
             ofil.write(rendered.encode('utf-8'))
     return make_index_impl
 
-for s in Glob('Games/*/*'):
+for s in Glob('Games/*/static') + Glob('Games/*/example'):
     _, rest = str(s).split('/', 1)
-    Command('docs/game/%s' % (rest),
-            s,
-            Copy('$TARGET', '$SOURCE'))            
+    c = Command('docs/game/%s' % (rest),
+                s,
+                Copy('$TARGET', '$SOURCE'))            
+    Depends(c, Glob(str(s) + '/*'))
+    Depends(c, Glob(str(s) + '/*/*'))
 
 c = Command('docs/index.html',
             ['Templates/index.mak'],

@@ -1,0 +1,14 @@
+\documentclass[char]{iron}
+\begin{document}
+\name{\cTest{}}
+
+
+\begin{itemz}[Goals]
+\item
+\end{itemz}
+
+\begin{contacts}
+\contact{}
+\end{contacts}
+
+\end{document}

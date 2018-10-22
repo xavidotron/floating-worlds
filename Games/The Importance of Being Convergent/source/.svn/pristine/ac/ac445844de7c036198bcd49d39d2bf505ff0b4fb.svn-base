@@ -1,0 +1,57 @@
+\documentclass[char]{iron}
+\begin{document}
+
+\name{\cTrickster{}}
+
+%% quote examples
+%\bigquote{``Use this macro for large quotes of prose and such.  It justifies everything like a paragraph, except with no indentation.''}{-- The Author}
+
+%\cenquote{``This macro is good\\ For shorter quotes\\ Or things like song lyrics:\\ It centers.''}{-- The Author}
+
+Oooh, a party! This is going to be such \emph{fun}!
+
+You're an Earth spirit! So that's pretty neat. All the spirits of Water and Fire and especially Air have all these boring \emph{responsibilities}, but since Earth is at the bottom of the heap, you're off the hook for any sort of work! You basically get to do what you want, when you want!\footnote{On the other hand, you're also magically bound to the mortals of the Earth caste, and you \emph{guess} it would be nice for them to not be at the bottom, for once\ldots{}}
+
+The other spirits don't always like you, though. They say you're always causing trouble. Which you are! But you don't see what's so bad about that! One time some other spirits got so mad at you that you went to go take a nap in a tree just so they'd stop yelling. But then! You'd barely been asleep for a couple of decades when this absolutely \emph{filthy} mortal showed up under your tree, crying and wailing and making the \emph{worst} sort of racket. ``Oh boo hoo, I'm a dirty peasant and my stepfamily hates me!'' But still! The mortal was obviously an Earth mortal, and you're an Earth spirit, so, y'know, you kind of had to take pity. So you conjured up a beautiful silken robe and sent it wafting down from the tree, and you even did that thing where the air hummed with eldritch energy, and that shut the mortal \emph{right} up. They donned the robe and ran off. Peace at last!
+
+Except you were feeling a bit restless, so you decided to wander for a bit. And then! While eavesdropping on some mortals, you found out that you had woken up just in time for the Convergence! The \emph{last} time the Convergence happened, nothing changed and all the elements stayed in the same place. It was so \emph{boring}! You were \emph{very} disappointed.\footnote{Though you guess that at least you're grateful that Earth stayed at the bottom, so you could get away with another century of slacking off!}
+
+And so! You decided that \emph{this} century, you'd stop by to stir things up a bit! You managed to track down a Water mortal on their way to the Convergence, and while they were bathing in a river you assumed their form and stole their clothes!\footnote{You also stole their name, or just borrowed it, really. \cTrickster{\real{\intro}}? That's a silly name. Spirits don't have names, though, so maybe you're a bit biased.} A perfect disguise! (You can conjure clothes on the spot, of course, but this way just seemed more \emph{fun}!)
+
+So now you're here! Hurrah! And better yet, everyone here smells like \emph{lies}! It's absolutely delicious! You're not \emph{quite} sure yet what they're all hiding, but all those secrets are going to come to light if you get your way!
+
+But wait! There's more! That one mortal, the crying one from the tree? Is here! I know! Crazy! And everyone is, like, \emph{really} interested in them. Hm, maybe you put way more juice into those magic robes than you realized. Oh well! Mortals don't really do it for you \emph{that} way, but at least everyone else here has something nice to look at!
+
+\begin{itemz}[Goals]
+  \item See to it that everyone's secrets come to light in the most hilarious way possible.
+  \item Cast your votes at the Convergence in whatever way will cause maximum chaos!
+  \item Make sure that the whiny mortal in the magic robe gets a happy ending. You're not gonna have the other spirits saying that your gifts suck!
+  \item Also try to help the other Earth mortals, because that's kind of your job or something (when you feel like it). Of course, first you have to figure out which of these mortals are \emph{actually} members of the Earth caste\ldots{}  
+\end{itemz}
+
+\begin{itemz}[Notes]
+  \item You're not a mortal, but it appears that as long as you're in this form you can summon a magical sparkly voting butterfly the way the rest of them do. Yay! You're an Earth spirit, so you'll need two Earth gems and one of each other color.
+  \item You've got magic, of course, but using it so close to the site of the Convergence seems awfully risky---even for you. Better not chance it. There have got to be safer, more fun ways to cause trouble.
+\end{itemz}
+
+%%%%%
+%% List contacts, using \contact{<char macro>}
+\begin{contacts}
+  \contact{\cHotPerson{}} An Earth mortal that you gave a magic robe to, and now they're wicked hot! (To other mortals, anyway.)
+\end{contacts}
+
+\begin{contacts}[Scents]
+  \contact{\cServant{}} \emph{Sniff!} ``Aww, lying for the sake of love! How sweet!''
+  \contact{\cLieutenant{}} \emph{Sniff!} ``Hmm, no, the scent of jealousy doesn't suit you at \emph{all}.''
+  \contact{\cGuildmaster{}} \emph{Sniff!} ``Careful---those are some mighty big shoes you're trying to fill!''
+  \contact{\cFakePriest{}} \emph{Sniff!} ``Huh, your lie smells an awful lot like\ldots''
+  \contact{\cRealPriest{}} \emph{Sniff!} ``\ldots\emph{your} lie. Weird.''
+  \contact{\cPatriot{}} \emph{Sniff!} ``Oho, the thing you want most is right under your nose, and you don't even know it? Hi-larious!''
+  \contact{\cBastard{}} \emph{Sniff!} ``My goodness, you were \emph{born} surrounded by lies!''
+  \contact{\cMulan{}} \emph{Sniff!} ``Yup, \emph{definitely} an Earth mortal. I can always tell one of my own!''
+  \contact{\cRoyalty{}} \emph{Sniff!} ``Wait, you're who you say you are? That's boring. But you \emph{do} know a secret that could shake things up\ldots''
+  \contact{\cSpy{}} \emph{Sniff!} ``Ooh, you're not from around here at \emph{all}, are you? Naughty, naughty!''
+\end{contacts}
+
+
+\end{document}

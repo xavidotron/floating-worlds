@@ -1,0 +1,13 @@
+%% item cards printed on cardstock
+\documentclass[carditems]{iron} %% make sure name of class is correct
+\begin{document}
+
+\MAP{NoItem}{}
+
+% Standard production command
+\production
+
+% Butterfly envelopes
+%\unpunt{ItemEnvelope}{\EVERY{ItemEnvelope}{}}
+
+\end{document}

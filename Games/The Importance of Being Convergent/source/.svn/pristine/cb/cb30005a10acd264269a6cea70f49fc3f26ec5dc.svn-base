@@ -1,0 +1,10 @@
+%% namebadges printed
+\documentclass[badges]{iron} %% make sure name of class is correct
+
+
+\usepackage{xstring}
+\begin{document}
+
+\production
+
+\end{document}

@@ -1,0 +1,250 @@
+%%%%%
+%%
+%% This is intended as a nearly complete rules and scenario document
+%% that you, the GM, change and complete for your game.  Various
+%% comments suggest what parts can be removed or changed based on
+%% common game variants.  For example, you will not need the rule for
+%% player rooms if your gamespace is not open or otherwise doesn't
+%% include living spaces.  Some possibly useful sentences/paragraphs
+%% are simply commented out.
+%%
+%% Feel free to ignore these comments and just write what you want.
+%%
+%%
+%%
+%% These rules are merely an example ruleset.  Nothing in them is
+%% sacred or even established by consensus.  They do not prescribe a
+%% standard.  As a GM, you can change, remove, or rewrite whatever is
+%% necessary to fit your game design.
+%%
+%% However, much of the material presented here, especially in the
+%% Getting Started and Items Etc. sections, may be taken for granted
+%% by many players.  This has two major implications:
+%%
+%% 1) Because of gradual shifts, longstanding biases, and first
+%% impressions, different players (and GMs!) may have very different
+%% assumptions about some details.  Do not brush off the sections that
+%% "everyone knows."  Make sure everyone pays attention to the rules
+%% as a whole.
+%%
+%% 2) If you have a clever idea to change some detail in the
+%% fundamental parts of the rules, make sure to draw attention to it.
+%% For example, if you modify the item bulkiness rules, don't just
+%% gloss over your changes in the middle of a paragraph.
+%%
+%% You may want a section at the end as a reference to any fundamental
+%% changes.  See "New Rule Summary" at the end.
+%%
+%%
+%%
+%% The martial combat system (and related health states and ranged
+%% combat system) in this doc is known as "darkwater," named after The
+%% Pirates of Darkwater, for which the first version was written.  It
+%% is included as an example combat system.
+%%
+%%
+%%
+%% Basic guidelines for rules-writing:
+%%
+%% Use simple, concise, and precise language.  Avoid colloquialisms
+%% and speech mannerisms.  Write in the second person.  Use the
+%% imperative voice when possible.  Write like you are writing
+%% directions.
+%%
+%% When you change contexts, like going from writing to the attacker
+%% to writing to the defender, at least change paragraphs.
+%%
+%% When first introducing a major term and/or abbreviation, use bold
+%% text.  Try to define terms before you use them.  Combined with
+%% section/subsection/paragraph headings, this will make the rules
+%% easier to skim for reference.  First establish context, then go
+%% into detail.
+%%
+%% Be thorough, but do not ramble.  Try to make the spirit of the
+%% rules clear in addition to the letter.  If the spirit is hard to
+%% relay, then the rule may be too complicated.
+%%
+%%%%%
+
+\documentclass[sheet]{iron}
+
+\begin{document}
+
+\parskip 0pt
+
+\name{\emph{\gamename} Scenario and Rules}
+
+\section{Background}
+
+\sHomeCountry{} is a small but ancient kingdom, boasting great mineral
+wealth, large stretches of fertile farmland, and a prosperous port on
+the Inland Sea.  It is generally considered a monarchy, but its customs
+differ from those of the neighboring kingdoms: \sTreatyCountry{},
+strong in trade and metalwork;
+\sMulanCountry{}, aggressive and independent; and \sSpyCountry{},
+known for strong guilds and universities.
+
+\sHomeCountry{}'s most distinctive feature is its strong caste system.
+Every individual is born into one of the four castes, each based around
+one of the elements: Air, Fire, Water, or Earth.  Each caste has rigidly
+defined roles in society and a rigidly defined place in the social hierarchy:
+
+\begin{itemz}
+\item \textbf{Air}: aristocrats and artists, tasked with governance over the
+  land and owed fealty by the other three castes.
+\item \textbf{Fire}: soldiers and commanders, charged with national defense
+  and military operations under Air government oversight.
+\item \textbf{Water}: merchants, traders, shopkeepers, and clerics.  The Water
+  caste is responsible for both domestic and international commerce and much
+  of the operations of urban life, and pays taxes that support the upper two
+  castes.
+\item \textbf{Earth}: peasants, farmers, woodcutters, and miners.  The
+  Earth caste works hard to provide the raw materials of the nation,
+  and make payments in kind to the other castes in exchange for
+  the land they work, protection, and opportunities
+  to trade.
+\end{itemz}
+
+\sHomeCountry{} has long maintained a policy of isolationism, avoiding
+entanglement in international affairs.  Some believe that
+\sHomeCountry{}'s continued independence and prosperity despite being
+a small country without strong allies is due to its strong magic, tied
+to the elemental gems that are found only in \sHomeCountry{} and said
+to be preserved by maintaining the restrictions of the caste system.
+Many of \sHomeCountry{}'s traditions are based around the ideas of
+keeping the elements pure and strong: for example, it is forbidden to
+transport any elemental gems outside \sHomeCountry{}'s borders, to
+marry further than one caste above or below your
+own,\footnote{Marrying outside your caste at all is frowned upon, but
+  it does happen once in a great while.} or to use magic in violence.
+Elemental magic is used widely in daily life in \sHomeCountry{} for
+everything from practical purposes like growing crops and fast
+transportation to such things as delicate moving sculptures and
+cakes that defy gravity.  However, magic takes much preparation,
+and any supernatural activities other than those involved
+in the Convergence itself would be highly improper.
+
+\section{The Convergence}
+
+\begin{itemz}[Game Schedule]
+\item \textbf{45 minutes in}: voting on the Questions of Tradition
+\item \textbf{1 hour in}: the Realignment takes place
+\item \textbf{1:30 in}: end of the period for auspicious weddings
+\end{itemz}
+
+\vskip.5\baselineskip
+
+The most unusual feature of \sHomeCountry{}'s caste system is that it
+is not the immutable structure one might expect.  Every 100 years, a
+mystical Convergence of the four elements occurs, and it is
+possible to reshape the structure of society.  Today, you are
+privileged to be part of one of the four castes' delegations to the
+Convergence.  With the proper application of magic and spiritual energy,
+you could create a Realignment and change
+the ordering of the castes for the next 100 years.
+
+Of course, a complete rearrangement of society would be chaos.  The
+possibilities before you, while significant, are restricted.  The
+Realignment could at most exchange the position of any two adjacent
+castes.  Thus, you could swap Air and Fire, Fire and Water, or Water
+and Earth.  Alternately, you could decide against a Realignment
+and maintain the status quo.
+
+A newly raised caste would attain additional prestige and privilege, and
+now receives fealty and support from a caste that used to be above
+them.  In addition, a Realignment changes which individuals outside
+your caste you would be eligible to marry.
+
+With the new possibilities for marriage after a Realignment and the general
+holiness of the Convergence, weddings are frequently carried out immediately
+after a Realignment.  The first thirty minutes after the Realignment
+are thought to be particularly auspicious, bringing great fortune and
+happiness to the new couple.
+
+\subsection{Questions of Tradition}
+
+Beyond the possibility of a Realignment, the Convergence is also the
+traditional time to revisit key principles of law and custom in \sHomeCountry{},
+traditions that have been enshrined with great force.  Castes can propose
+alterations to the traditions of \sHomeCountry{}, and the delegates vote
+to decide these Questions.
+
+This Convergence, three Questions have been brought before the delegates:
+
+\begin{itemz}
+\item \textbf{Air}:
+  Should \sHomeCountry{} abandon its policy of isolationism and pursue
+  an alliance and mutual defense agreement with \sTreatyCountry{}?
+\item \textbf{Fire}: Should the prohibition of
+  magic in battle be removed, and research into the use
+  of Fire magic in combat be permitted?
+\item \textbf{Water}: Should the ban on exporting elemental gems be
+  lifted, allowing trade of these goods with foreign markets?
+\end{itemz}
+
+No further questions may be proposed; the time for doing so,
+as magically codified in the
+laws of \sHomeCountry{}, is long past.
+
+\section{Rules}
+
+This is a game.  Have fun.  Don't take it too seriously.
+
+There is no combat system.  Feel free to roleplay duels or other sorts
+of contests, however.
+
+All characters were written as gender-neutral; feel free to decide
+what gender you are.  There are no customs or traditions against
+same-sex relationships or marriages in \sHomeCountry{}, nor are
+there other gender-based restrictions or customs.
+
+Many of you have secrets (gasp!).  This isn't some cut-throat
+competition.  We find you get better stories if secrets get out during
+game, so we encourage players to set up dramatic revelations, even if
+the characters would be trying to keep things hidden.
+
+Some people may be in disguise (gasp!).  You start off with the name
+badge matching the name on your character sheet.  If you have another
+name badge in your packet, and you reveal your true identity publicly, you may
+wear your alternate badge.
+
+\subsection{Gems and Butterflies}
+
+Elemental gems are represented by glass beads.  They come in
+four colors: pink for air, orange for fire, blue for water, and green
+for earth.  To summon your spirit butterfly, you need
+elemental gems in some particular combination: two of
+your elemental affinity and one of each other element.
+Each character has an envelope that specifies the exact set of
+five gems they need.
+
+Once you have the proper gems, you must activate them by
+a sharing of trust.  This requires you to tell someone a secret about
+you they don't already know.  (Use a secret from your character
+sheet, unless somehow everyone in game already knows all your secrets.)
+
+After you've activated your gems, you can summon your spirit
+butterfly.  This consumes your gems, and they can no longer be traded.
+Open your envelope and take the butterfly out.  Each butterfly is
+colored based on the summoner's elemental affinity.  Butterflies are
+quite compliant once summoned, and can be treated and concealed like
+ordinary physical objects.
+
+Once you have a butterfly, you can use it to steer the Realignment.
+There will be marked areas to place butterflies for different possible
+Realignments.  You may place a butterfly you have there at any time.
+Placed butterflies cannot be removed.  The option
+with the most butterflies at the time of Realignment will take effect.
+Ties will be broken by the leader of the Earth delegation.
+
+If Air is displaced, the new monarch of all \sHomeCountry{} will be
+chosen by the departing ruler, \cRoyalty{}.
+
+\subsection{Questions of Tradition}
+
+Determining whether to change enshrined traditions will be decided by
+a show of hands among delegates.  In the case of a tie, the leader
+of the delegation from the caste that proposed the question will
+decide.
+
+\end{document}

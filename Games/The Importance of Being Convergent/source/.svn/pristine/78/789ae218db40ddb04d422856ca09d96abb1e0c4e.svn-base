@@ -1,0 +1,63 @@
+%% Name this file Lists/runN-LIST.tex or similar, and set
+%% \gamerun to N in your .cls file, where N is a number.
+
+\updatemacro{\cSpy}{
+  \rs\MYplayer{Per Davidson}
+  \rs\MYemail{perdavidson84@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cMulan}{
+  \rs\MYplayer{Tory Root}
+  \rs\MYemail{arkady.lizard@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cGuildmaster}{
+  \rs\MYplayer{Lily Benderskaya}
+  \rs\MYemail{mllelaurel@yahoo.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cServant}{
+  \rs\MYplayer{Kristen Patten}
+  \rs\MYemail{conspiratrix@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cFakePriest}{
+  \rs\MYplayer{Susan Putnins}
+  \rs\MYemail{susanputnins@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cRealPriest}{
+  \rs\MYplayer{Mehitabel}
+  \rs\MYemail{opabinia@mit.edu}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cHotPerson}{
+  \rs\MYplayer{Laura Boylan}
+  \rs\MYemail{laura47@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cPatriot}{
+  \rs\MYplayer{Pete Vander Giessen}
+  \rs\MYemail{petevg@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cRoyalty}{
+  \rs\MYplayer{Ashleigh La Porta}
+  \rs\MYemail{ashleigh.laporta@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cBastard}{
+  \rs\MYplayer{Sophia Pounds}
+  \rs\MYemail{sophiaepounds@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cTrickster}{
+  \rs\MYplayer{Caroline Aronoff}
+  \rs\MYemail{caroline.aronoff@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!
+\updatemacro{\cLieutenant}{
+  \rs\MYplayer{Aaron Boyden}
+  \rs\MYemail{aaron.boyden@gmail.com}
+  \rs\MYsex{\female}
+}  % Time conflict!

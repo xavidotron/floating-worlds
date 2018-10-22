@@ -1,0 +1,110 @@
+\documentclass[char]{iron}
+\begin{document}
+\name{\cRoyalty{}}
+
+They say it's good to be on top.  You were known to hold such views, once.
+But times change, and people change.  Even in a country as full of tradition
+as \sHomeCountry{}, much can change.
+
+You are the ruler of \sHomeCountry{}.  You have your palace in the capital.
+Your summer villa on the inland sea.  Your winter castle in the rolling
+hills.  You have servants to attend your every whim.  You have riches
+beyond compare.  Your chefs serve the finest delicacies.  You have all
+the wealth a person could ask for.  And for a time you were content
+with such holdings.
+
+But even a monarch has time for thought and contemplation.  You often
+hear others of the Air caste joke, in their witty way, of the plights
+of the lower castes.  The hopeful earnestness of the young Fire
+soldiers that go to their deaths.  The worried lines of the Water
+merchant that can't seem to quite keep enough up with her expenses.
+And most of all the Earth peasants, scraping at the dirt and living in
+hovels, freezing in the snows and knowing scarce comfort.
+
+You hear this prattle, and it makes you wonder.  Why are you the monarch,
+and others farmers?  Why should the lowest Air bastard be worth more
+than the noblest members of the other castes?
+Is it the gods that assign us to our castes?  Is it,
+as some Air philosophers propose, the inexorable wheel of karma, assigning
+caste based on some measure of sin or virtue in a past life?  Or is it mere
+random chance of fortune?
+
+In essence, why do you deserve the life of luxury you were born into,
+never doing a thing to earn it?  Why do the Earth caste, who bear
+great burdens and make great labor all their lives, never have any
+chance to better their lot?  Is such a system even just?
+
+Some say the Convergence and the Realignment prove the justice of
+\sHomeCountry{}'s ways, as each caste has equal ability to set the
+course for the next century. And yet, Air has remained on top for
+centuries, and if Earth has ever been anywhere other than the bottom,
+no record of such a time can be found in the royal archives.  The Earth
+caste does great work for the country, putting in great labor for a system
+that serves them ill.
+
+You have thought much, and researched much, and have determined that there
+is another way.  The traditions of \sHomeCountry{} consider only small
+changes at the Realignment, cautioning against the dangers of drastic change.
+But it doesn't have to be that way.  Justice demands differently.  No, you've
+found in ancient scrolls a way to put this right quickly.  To move Earth
+right to the top of the heap.  They've put in their centuries of work.  They
+deserve time in the sun.
+
+Of course, such a proposal will be controversial.  It goes against your
+traditions, and puts the other castes at a disadvantage.  But you are the
+monarch, here, now.  That will count for something.
+
+And meanwhile, as long as you still rule \sHomeCountry{}, it would not be fit
+for you to neglect it.  One manner, in particular, is key to your country's
+future: the alliance with \sTreatyCountry{}.  For too long have you remained
+aloof and separate, spurning foreign powers that seek only friendship.  This
+folly has been to your detriment: would \sMulanCountry{} have been so quick
+to start hostilities if you were not alone, with no allies to call upon?
+Would \sSpyCountry{} make their oblique threats and demands if you did
+not seem such an easy target?  No, abandoning this tradition of isolation is 
+long overdue.  You must see to it that \sHomeCountry{} chooses the right path.
+
+That's not the only important matter being decided today, either.  The Water
+caste is proposing starting the export of elemental gems.  \sHomeCountry{}'s
+elemental magic is what's kept it strong all these centuries; it's what makes
+the whole country function, from your laws and traditions to the many
+necessary uses of magic in everyday life.  You can't risk diluting or losing
+your magic by spreading its source through lands far away.  There's no
+knowing what would happen. Fortunately, you expect that \cGuildmaster{\intro}, the Guildmaster of the Water caste, will support you on this issue. \cGuildmaster{} is not personally involved in the gem trade, and is too self-interested to support a measure that would only benefit other traders.
+
+And, meanwhile, all the people here look to you as their ruler.  Serve as
+a good example of propriety and good dealings, and ensure that order is
+kept and nothing unpleasant disrupts this most holy of days.  For it is
+the Convergence, and there is no day more pivotal for \sHomeCountry{}.
+
+\begin{itemz}[Goals]
+\item Find the right opportunity to announce your new path, and convince
+  enough others to move the Realignment in this new and just direction.
+\item Make sure the alliance with \sTreatyCountry{} goes through.
+\item Preserve \sHomeCountry{}'s magic by maintaining the ban on elemental
+  gems.
+\item Keep order and make sure nothing unduly disrupts the Convergence.
+\item Ensure that all dealings are carried out in a right and proper manner.
+\item See to it that everyone collects enough gems to summon their spirit butterflies. It is a rare event when all the castes mingle like this, and you want everyone to have a voice.
+\end{itemz}
+
+\begin{itemz}[Notes]
+\item Should Air be displaced by another caste, it will fall to you to select your successor. The final decision is yours, although you may turn to your subjects for advice. The new ruler should exemplify the best qualities of their element, and in particular they should actually \emph{be} a member of the new ruling caste. (Not that anyone would ever show up to the Convergence in disguise.)
+\end{itemz}
+
+\begin{contacts}
+\contact{\cBastard{}} A dignified and respected Air noble from a powerful 
+family.  Has made a big impact despite coming from a minor branch of
+the \cBastard{\last} family.
+\contact{\cHotPerson{}} A charming and gracious young noble in the Air delegation.
+\contact{\cMulan{}} The hero of the recent skirmishes with \sMulanCountry{}.
+Detected an infiltration party and tracked them for hours through the 
+wilderness until help could arrive.  You made them a General for their bravery
+and services to \sHomeCountry{}.
+\contact{\cFakePriest{}} The Head Cleric at the temple in the capital.
+They have expressed their willingness to marry
+any betrothed in the auspicious period immediately after the Realignment.
+\contact{\cGuildmaster{}} The Guildmaster of the Water caste, and accordingly the leader of their delegation. A shrewd, greedy businessperson, but perhaps a valuable ally as well.
+\end{contacts}
+
+\end{document}

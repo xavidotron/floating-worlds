@@ -1,0 +1,53 @@
+#!/usr/bin/python
+
+import subprocess, sys, os
+import argparse
+
+from prod_lib import *
+
+parser = argparse.ArgumentParser(epilog=
+"""Examples:
+  %(prog)s Dir/file.tex
+  %(prog)s listchar-cJamesBond
+  %(prog)s listchar-2-cJamesBond
+  %(prog)s -l [-j cJamesBond] Gameki/Mail/casting.tex""",
+                                 formatter_class=argparse.RawTextHelpFormatter)
+
+parser.add_argument('target', nargs='+', help="files or option-macros to prod")
+parser.add_argument('--single', '-s', action='store_true', help="use single-siding (don't put a blank page after sheets to make the page count even)")
+parser.add_argument('--color', '-c', action='store_true', help="use color (\PDFPart) mode: single-siding and set background colors")
+parser.add_argument('--run', '-r', help="prod a file using the given run instead of the default")
+parser.add_argument('--latex', help="specify what latex binary to use (default from Gameki/config.yaml: %s)" % default_latex, choices=LATEX_MAP.keys())
+parser.add_argument('--text', '-t', action="store_true", help="use lualatex and cat the text output (from Gameki/lib/text.sty)")
+parser.add_argument('--jobname', '-j', help="pass JOBNAME as the jobname to the latex file")
+parser.add_argument('--outdir', '-o', help="directory for all output files to go to")
+parser.add_argument('--pdfdest', '-p', help="copy pdf to this location on successful production")
+
+args = parser.parse_args()
+
+if args.text:
+    assert len(args.target) == 1
+    print get_text(args.target[0], jobname=args.jobname, run=args.run),
+    sys.exit(0)
+
+products = []
+for t in args.target:
+    # NOTE(xavid): setting outdir leads to an unnecessary extra pass when
+    #              the .aux file didn't already exist. We could theoretically
+    #              try to fix this.
+    product = get_pdf_path(t, single_sided=args.single, color_sheets=args.color,
+                           latex=args.latex, outdir=args.outdir,
+                           jobname=args.jobname, run=args.run, verbose=True)
+
+    products.append(product)
+    if args.pdfdest:
+        os.copy(product, args.pdfdest)
+        if args.pdfdest.endswith('/'):
+            dest = os.path.join(pdfdest, os.basename(jn + ".pdf"))
+        else:
+            dest = args.pdfdest
+        print >>sys.stderr, "Copied to", dest
+
+if len(products) > 1:
+    print >>sys.stderr, "Finished prodding:", ', '.join(
+        products)

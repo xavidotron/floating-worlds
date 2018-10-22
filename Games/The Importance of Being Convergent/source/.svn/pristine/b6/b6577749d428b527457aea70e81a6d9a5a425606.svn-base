@@ -1,0 +1,65 @@
+\documentclass[char]{iron}
+\begin{document}
+
+\name{\cHotPerson{}}
+
+%% quote examples
+%\bigquote{``Use this macro for large quotes of prose and such.  It justifies everything like a paragraph, except with no indentation.''}{-- The Author}
+
+%\cenquote{``This macro is good\\ For shorter quotes\\ Or things like song lyrics:\\ It centers.''}{-- The Author}
+
+The Convergence! Oh, what a marvelous occurrence! At long last, your opportunity to find the one thing you want more than anything else---true love!
+
+And to think, just a week ago you were ready to give up on love altogether! How could you expect to find the love of your life when you were spending every waking moment performing backbreaking manual labor? Even at home you could find no respite, for your awful stepmother and your two horrible stepsisters were determined to torment you at every opportunity. At least while your father was still alive, they had to pretend to treat you with civility\ldots{}
+
+And then, one starlit night, you were so distraught that you went to tree that had been planted upon your mother's grave, to weep and wail and beg the spirits to improve your lot in life. And somehow---miraculously---your desperate prayers were answered! As the air hummed with an eldritch energy, a beautiful set of ceremonial robes fluttered down from the branches of the tree. You couldn't believe it. The softest silk, the most vibrant dyes---why, it looked precisely like the sort of robes worn by the loftiest nobles of the Air caste! You wrapped yourself in the beautiful garment, heedless of your grubby hands and filthy rags, and yet the enchanted robe seemed impervious to all stains. In fact, when you gazed at your reflection in the nearby pond, you found that your entire appearance had been transformed! You looked so polished, so refined, so \emph{clean}---the radiant, gracious noble you had always secretly dreamed of being!
+
+You left immediately, not even bothering to return to your stepmother's hovel, and found that no door was closed to you. People saw you and your shining robes and fell over themselves to give you everything you desired. It was a mad whirl, and one that somehow ended with you being invited to join this century's Convergence as a representative of the Air caste. What an honor!
+
+And yet\ldots{} Well, it is all so strange! You see the way that many of the other guests at the Convergence are eyeing you, but\ldots{} but would they still look at you that way if they knew the truth? It is most distressing! Love is in the air tonight, but you know you could only be truly happy with someone who would love you whether you were clad in slimy rags or enchanted silk.
+
+And of course there is the unfortunate matter of castes\ldots{} A marriage to a noble of Air would be forbidden after you reveal your true nature, and the possibility of a union to a Fire warrior or a Water merchant hinges on the results of the realignment. If Earth were to switch places with Water, that would give you the most options---and it would also make your life much less impoverished after you abandon your disguise!
+
+The Convergence is a time of rebirth, and that includes the traditional telling of a secret. But you must do so much more than that! When you find someone who loves you for who you really are, you must tell them \emph{all} of your secrets! It's the only way to be sure! And to think, if you could find a love so true, and get married tonight, on this most auspicious of occasions---why, nothing could possibly stop you and your love from living happily ever after!
+
+\begin{itemz}[Goals]
+  \item Find and marry your true love---someone who knows all your secrets, and loves you all the same!
+  \item Elevate the status of Earth when the realignment occurs.
+\end{itemz}
+
+%\begin{itemz}[Notes]
+%  \item 
+%\end{itemz}
+
+\begin{itemz}[Secrets]
+  \item You're actually a lowly Earth peasant.
+  \item You always tell people that your favorite color is turquoise, but actually you prefer more of a sea-foam green.
+  \item Once, you put spiders in your stepsisters' hair while they were sleeping. Okay, maybe it was more than once.
+  \item You are deathly afraid of birds. What if they tried to peck out your eyes?!
+  \item One time you were so hungry that you killed and ate a squirrel. You're not proud of that, but there it is.
+  \item You think \cRoyalty{}'s hairstyle looks rather foolish.
+  \item Back home, you would place a dried flower under your pillow each night, for good luck. It's a silly superstition, but one that you learned from your mother.
+  \item One time, you wished \emph{very} hard on a shooting star that your stepmother would spontaneously catch fire. It didn't work, which was probably for the best, but you were still a bit disappointed at the time.
+  \item You are extremely self-conscious about the shape of your ears.
+  \item There are some mushrooms that grow near your old hovel that you've discovered have mild hallucingenic qualities. You would \emph{very} occasionally eat one.
+  \item You derive inordinate pleasure from stepping on dead, crunchy leaves in the autumn.
+\end{itemz}
+
+%%%%%
+%% List contacts, using \contact{<char macro>}
+\begin{contacts}
+  \contact{\cTrickster{}} A kindly merchant of the Water caste. Almost surprisingly, their interest in you seems friendly rather than romantic.
+  \contact{\cPatriot{}} An Earth peasant, and the one person here who seems to view you with\ldots{} disdain? Suspicion? Disgust?
+  \contact{\cLieutenant{}} A dashing Fire soldier who's been giving you some
+  meaningful glances.
+  \contact{\cMulan{}} A famed military hero who you've caught looking your
+  way a time or two.
+  \contact{\cRealPriest{}} Another Fire soldier who seems interested.  Quite
+  well-spoken.
+  \contact{\cSpy{}} An Earth elder who you've noticed watching you a few
+  times.  A bit old for you, probably\ldots{}  But at least they'd understand
+  the real you.
+\end{contacts}
+
+
+\end{document}
