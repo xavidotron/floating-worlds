@@ -4,7 +4,7 @@ import yaml
 from mako.template import Template
 from mako.lookup import TemplateLookup
 
-def WalkTree(d):
+def WalkTree(d, exclude_products=False):
     assert d.endswith('/'), d
     matches = []
     for root, dirnames, filenames in os.walk(d):
@@ -16,13 +16,13 @@ def WalkTree(d):
             if (filename.endswith('~') or filename.endswith('.pyc')
                 or filename.startswith('.')):
                 continue
-            if root == d and (
+            if root == d and exclude_products and (
                 filename.endswith('.log') or filename.endswith('.pdf')
                 or filename.endswith('.out')):
                 continue
             if filename.startswith('run') and filename.endswith('-LIST.tex'):
                 continue
-            matches += Glob(os.path.join(root, filename))
+            matches.append(os.path.join(root, filename))
     return matches
 
 def get_name(f):
@@ -43,8 +43,9 @@ def get_game(yamlf, include_locals):
     if 'blurb' not in d:
         d['blurb'] = d['desc']
     if include_locals:
-        static = 'Games/%s/static' % d['name']
-        d['static'] = [f for f in os.listdir(static) if not f.startswith('.')]
+        static = 'Games/%s/static/' % d['name']
+        d['static'] = [f[len(static):]
+                         for f in WalkTree(static) if not f.startswith('.')]
         d['static'].sort(key=lambda s: ' ' + s
                          if s.startswith('instructions') or s.startswith('gm')
                          else s)
@@ -93,7 +94,7 @@ for yamlf in Glob('Games/*/game.yaml'):
     Depends(c, 'SConstruct')
 
     c = Zip('docs/game/%s/source.zip' % (stem),
-            WalkTree('Games/%s/source/' % stem),
+            WalkTree('Games/%s/source/' % stem, exclude_products=True),
             ZIPROOT='Games/%s/source/' % stem)
     Depends(c, 'SConstruct')
 
