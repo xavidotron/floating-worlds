@@ -43,6 +43,7 @@ def get_game(yamlf, include_locals):
     if 'blurb' not in d:
         d['blurb'] = d['desc']
     if include_locals:
+        d['logo'] = 'logo.png'
         static = 'Games/%s/static/' % d['name']
         d['static'] = [f[len(static):]
                          for f in WalkTree(static) if not f.startswith('.')]
@@ -73,6 +74,7 @@ def yaml_mako(local):
 games = []
 recommended = []
 
+pwd = os.getcwd()
 for yamlf in Glob('Games/*/game.yaml'):
     games.append(yamlf)
     stem = str(yamlf).rsplit('/', 2)[-2]
@@ -80,12 +82,19 @@ for yamlf in Glob('Games/*/game.yaml'):
     c = Command(htmlf, ['Templates/game.mak', yamlf], yaml_mako(True))
     Depends(c, 'SConstruct')
     Depends(c, 'Templates/base.mak')
+
     materialsf = 'docs/game/' + stem + '/materials.html'
     c = Command(materialsf, ['Templates/materials.mak', yamlf], yaml_mako(True))
     Depends(c, 'SConstruct')
     Depends(c, 'Templates/base.mak')
     Depends(c, 'Games/%s/' % stem)
     Depends(c, Glob('Games/%s/*' % stem))
+
+    logof = 'docs/game/' + stem + '/logo.png'
+    c = Command(logof, 'Games/%s/logo.svg' % stem,
+                '/Applications/Inkscape.app/Contents/Resources/bin/inkscape '
+                '-b ffffffff --export-png=%s/${TARGET} %s/$SOURCE'
+                % (pwd, pwd))
 
     c = Zip('docs/game/%s/%s.zip' % (stem, stem),
             Glob('Games/%s/static/*' % stem)

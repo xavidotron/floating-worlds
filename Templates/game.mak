@@ -1,6 +1,9 @@
 <%inherit file="../base.mak"/>
 
 <a href="../../library/">&lt;&lt;</a>
+%if 'logo' in context.keys():
+<img src="${logo}" style="float: right" />
+%endif
 <h1>${name}</h1>
 
 <p>${blurb.replace('\n\n', '<p>')}</p>
