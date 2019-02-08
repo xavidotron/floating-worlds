@@ -50,10 +50,11 @@ versions tailored to your players' preferences.</p>
 
 %endif
 
+%if has_source:
 <h2>Source</h2>
 
 <a href="source.zip">Download GameTeX Source</a>
+%endif
 
 <p><small>If you have feedback, questions, or suggestions, email
 library@floating-worlds.org.</small></p>
-

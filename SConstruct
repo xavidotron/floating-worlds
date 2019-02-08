@@ -59,13 +59,15 @@ def get_game(yamlf, include_locals):
             d['example'].sort(key=lambda s: (s.count('/'), s))
     return d
 
-def yaml_mako(local):
+def yaml_mako(local, add_d):
     def yaml_mako_impl(target, source, env):
         makof, yamlf = source
         tmpl = Template(filename=str(makof), default_filters=['decode.utf8'],
                         lookup=TemplateLookup(directories=['Templates']))
         d = get_game(yamlf, local)
         d['prefix'] = '../../'
+        for k in add_d:
+            d[k] = add_d[k]
         rendered = tmpl.render(**d)
         with open(str(target[0]), 'w') as fil:
             fil.write(rendered.encode('utf-8'))
@@ -73,22 +75,13 @@ def yaml_mako(local):
 
 games = []
 recommended = []
+meta = {}
 
 pwd = os.getcwd()
 for yamlf in Glob('Games/*/game.yaml'):
     games.append(yamlf)
     stem = str(yamlf).rsplit('/', 2)[-2]
-    htmlf = 'docs/game/' + stem + '/index.html'
-    c = Command(htmlf, ['Templates/game.mak', yamlf], yaml_mako(True))
-    Depends(c, 'SConstruct')
-    Depends(c, 'Templates/base.mak')
-
-    materialsf = 'docs/game/' + stem + '/materials.html'
-    c = Command(materialsf, ['Templates/materials.mak', yamlf], yaml_mako(True))
-    Depends(c, 'SConstruct')
-    Depends(c, 'Templates/base.mak')
-    Depends(c, 'Games/%s/' % stem)
-    Depends(c, Glob('Games/%s/*' % stem))
+    meta[stem] = {}
 
     logof = 'docs/game/' + stem + '/logo.png'
     c = Command(logof, 'Games/%s/logo.svg' % stem,
@@ -102,16 +95,34 @@ for yamlf in Glob('Games/*/game.yaml'):
             ZIPROOT='Games/%s/static/' % stem)
     Depends(c, 'SConstruct')
 
-    c = Zip('docs/game/%s/source.zip' % (stem),
-            WalkTree('Games/%s/source/' % stem, exclude_products=True),
-            ZIPROOT='Games/%s/source/' % stem)
+    if os.path.exists('Games/%s/source/' % stem):
+        c = Zip('docs/game/%s/source.zip' % (stem),
+                WalkTree('Games/%s/source/' % stem, exclude_products=True),
+                ZIPROOT='Games/%s/source/' % stem)
+        Depends(c, 'SConstruct')
+        meta[stem]['has_source'] = True
+    else:
+        meta[stem]['has_source'] = False
+
+    htmlf = 'docs/game/' + stem + '/index.html'
+    c = Command(htmlf, ['Templates/game.mak', yamlf], yaml_mako(
+        True, meta.get(stem, {})))
     Depends(c, 'SConstruct')
+    Depends(c, 'Templates/base.mak')
+
+    materialsf = 'docs/game/' + stem + '/materials.html'
+    c = Command(materialsf, ['Templates/materials.mak', yamlf], yaml_mako(
+        True, meta.get(stem, {})))
+    Depends(c, 'SConstruct')
+    Depends(c, 'Templates/base.mak')
+    Depends(c, 'Games/%s/' % stem)
+    Depends(c, Glob('Games/%s/*' % stem))
 
 for yamlf in Glob('Games/*.yaml'):
     recommended.append(yamlf)
     stem = str(yamlf)[len('Games/'):-len('.yaml')]
     htmlf = 'docs/game/' + stem + '/index.html'
-    c = Command(htmlf, ['Templates/game.mak', yamlf], yaml_mako(False))
+    c = Command(htmlf, ['Templates/game.mak', yamlf], yaml_mako(False, {}))
     Depends(c, 'SConstruct')
     Depends(c, 'Templates/base.mak')
 
