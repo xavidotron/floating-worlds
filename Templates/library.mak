@@ -7,6 +7,7 @@ and elsewhere, for your enjoyment and inspiration.
 
 <p>Other good sources for LARPs:
 <ul>
+<li><a href="https://itch.io/c/467018/larps">Xavid's LARPs</a>
 <li><a href="http://library.interactiveliterature.org/">the NEIL Larp
 Library</a>
 <li><a href="https://wiki.rpg.net/index.php/LARP_Scenarios">the
